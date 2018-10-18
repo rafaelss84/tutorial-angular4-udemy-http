@@ -10,7 +10,10 @@ export class ServerService {
 
   storeServers(servers: any[]) {
     const headers = new Headers({'Content-Type': 'application/json'});
-    return this.http.post('https://tutorial-angular4-udemy-http.firebaseio.com/data.json',
+    // return this.http.post('https://tutorial-angular4-udemy-http.firebaseio.com/data.json',
+    //   servers,
+    //   {headers: headers});
+    return this.http.put('https://tutorial-angular4-udemy-http.firebaseio.com/data.json',
       servers,
       {headers: headers});
   }
