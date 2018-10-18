@@ -21,7 +21,7 @@ export class ServerService {
   }
 
   getServers() {
-    return this.http.get('https://tutorial-angular4-udemy-http.firebaseio.com/data')
+    return this.http.get('https://tutorial-angular4-udemy-http.firebaseio.com/data.json')
       .pipe(map(
         (response: Response) => {
           const data = response.json();
@@ -34,5 +34,14 @@ export class ServerService {
       .pipe(catchError(error => {
         return throwError('Something went wrong');
       }));
+  }
+
+  getAppName() {
+    this.http.get('https://tutorial-angular4-udemy-http.firebaseio.com/appName.json')
+      .pipe(map(
+        (response: Response) => {
+          return response.json();
+        }
+      ));
   }
 }
